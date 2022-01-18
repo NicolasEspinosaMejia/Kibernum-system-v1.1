@@ -1,0 +1,12 @@
+{
+    "registers": {
+        "tableName": "registers",
+        "type": "object",
+        "properties": {
+            "dateRegister": {
+                "dbName": "dateRegister",
+                "type": "dateTime"
+            }
+        }
+    }
+}

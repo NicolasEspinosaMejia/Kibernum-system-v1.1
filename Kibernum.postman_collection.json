@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "3b4b82e0-c347-46a2-9936-d5b54996645a",
+		"name": "Kibernum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener patentes",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Transaction-Id",
+						"value": "PREVALIDACION036",
+						"type": "text"
+					},
+					{
+						"key": "User-Id",
+						"value": "PREVALIDACION036",
+						"type": "text"
+					},
+					{
+						"key": "Owner",
+						"value": "PRIME_VAL",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identification\": 6300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/patents-system/get_patents",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"patents-system",
+						"get_patents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener identificadores",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Transaction-Id",
+						"value": "PREVALIDACION036",
+						"type": "text"
+					},
+					{
+						"key": "User-Id",
+						"value": "PREVALIDACION036",
+						"type": "text"
+					},
+					{
+						"key": "Owner",
+						"value": "PRIME_VAL",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identification\": 6300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/patents-system/get_patents",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"patents-system",
+						"get_patents"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,149 @@
+---
+swagger: '2.0'
+info:
+  description: >-
+    This is a Microservice developed under Python, it uses the PyMS
+    Microservice pattern and its main functionality is to support of the
+    patents of different clients.
+  version: 1.0.0
+  title: Patents System Microservice
+tags:
+  - name: Patents System
+    description: >-
+      This Microservice has functionality to process and configure all the requests
+      made to the patents of different clients
+  - name: Identifier System
+    description: >-
+      The functionality of this type of endpoint is only associated with
+      identification processes.
+paths:
+  /get_patents:
+    post:
+      tags:
+        - Patents System
+      summary: End point for patents setup
+      description: Endpoint to configure patents
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-swagger-router-controller: project.views.patents
+      operationId: get_patent
+      responses:
+        '200':
+          description: 'The request has succeeded'
+          schema:
+            $ref: '#/definitions/responseConfigValidation'
+      parameters:
+        - in: body
+          name: data
+          required: true
+          schema:
+              $ref: '#/definitions/patentRequest'
+  /get_identifiers:
+    post:
+      tags:
+        - identification System
+      summary: End point for identification setup
+      description: Endpoint to configure identification
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-swagger-router-controller: project.views.identifiers
+      operationId: get_identification
+      responses:
+        '200':
+          description: 'The request has succeeded'
+          schema:
+            $ref: '#/definitions/responseConfigValidation'
+      parameters:
+        - in: body
+          name: data
+          required: true
+          schema:
+              $ref: '#/definitions/identificationRequest'
+definitions:
+  patentRequest:
+    type: object
+    properties:
+      identification:
+          type: integer
+  identificationRequest:
+    type: object
+    properties:
+      patent:
+          type: string
+  responseConfigValidation:
+    type: object
+    properties:
+      apiVersion:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/logTopology'
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/responseDetail'
+      statusCode:
+        type: integer
+      method:
+        type: string
+  responseDetail:
+    type: object
+    properties:
+      code:
+        type: string
+      values:
+        type: array
+        items:
+          type: string
+      type:
+        type: string
+  logTopology:
+    type: object
+    properties:
+      guidFile:
+        type: string
+      process:
+        type: string
+      action:
+        type: boolean
+      entityName1:
+        type: string
+      entityId1:
+        type: string
+      entityName2:
+        type: string
+      entityId2:
+        type: string
+  responseBody:
+    type: object
+    properties:
+      method:
+        type: string
+      apiVersion:
+        type: string
+      data:
+        type: array
+        items:
+          type: object
+      details:
+        type: array
+        items:
+          $ref: '#/definitions/responseBodyDetail'
+      statusCode:
+        type: integer
+  responseBodyDetail:
+    type: object
+    properties:
+      message:
+        type: string
+      values:
+        type: array
+        items:
+          type: string
+      level:
+        type: string
